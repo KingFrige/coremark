@@ -100,6 +100,13 @@ MAIN_RETURN_TYPE main(int argc, char *argv[]) {
 #if (MEM_METHOD==MEM_STACK)
 	ee_u8 stack_memblock[TOTAL_DATA_SIZE*MULTITHREAD];
 #endif
+
+#if HAS_TOPDOWN_READM_READ
+  topDownCntGet();
+#elif HAS_INSNINFO_READ
+  insnInfoCntGet();
+#endif
+
 	/* first call any initializations needed */
 	portable_init(&(results[0].port), &argc, argv);
 	/* First some checks to make sure benchmark will run ok */
@@ -349,6 +356,12 @@ MAIN_RETURN_TYPE main(int argc, char *argv[]) {
 #endif
 	/* And last call any target specific code for finalizing */
 	portable_fini(&(results[0].port));
+
+#if HAS_TOPDOWN_READM_READ
+  topDownCntGet();
+#elif HAS_INSNINFO_READ
+  insnInfoCntGet();
+#endif
 
 	return MAIN_RETURN_VAL;	
 }

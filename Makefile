@@ -56,7 +56,7 @@ endif
 
 CFLAGS += -DITERATIONS=$(ITERATIONS)
 
-CORE_FILES = core_list_join core_main core_matrix core_state core_util
+CORE_FILES = core_list_join core_main core_matrix core_state core_util insn_info_hpm_get top_down_hpm_get
 ORIG_SRCS = $(addsuffix .c,$(CORE_FILES))
 SRCS = $(ORIG_SRCS) $(PORT_SRCS)
 OBJS = $(addprefix $(OPATH),$(addsuffix $(OEXT),$(CORE_FILES)) $(PORT_OBJS))
