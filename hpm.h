@@ -1,10 +1,6 @@
 #ifndef _HPM_H
 #define _HPM_H
 
-#define SET_PERFCNT(hpmcnt, eventid, enventclass) \
-  write_csr(hpmcounter ## hpmcnt, 0); \
-  write_csr(hpmevent ## hpmcnt, HPM_EVENTID_ ## eventid|HPM_EVENTCLASS_ ## enventclass);
-
 #define SHOW_PERFCNT(fmt, hpmcnt) \
   printf(fmt, (int)(read_csr(hpmcounter ## hpmcnt)));
 
