@@ -8,11 +8,11 @@
 int insnInfoCntGet(){
   size_t instret, cycles;
 
-  instret = read_csr(minstret);
-  cycles = read_csr(mcycle);
+  instret = read_csr(instret);
+  cycles = read_csr(cycle);
 
-  printf("minstret:%d\n", (int)(instret));
-  printf("mcycle:%d\n", (int)(cycles));
+  printf("instret:%d\n", (int)(instret));
+  printf("cycle:%d\n", (int)(cycles));
 
   SHOW_PERFCNT("int_load:%d\n", 3)
   SHOW_PERFCNT("int_store:%d\n", 4)
