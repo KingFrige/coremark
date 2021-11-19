@@ -8,9 +8,9 @@
 int topDownCntGet(){
   long instret, cycles, time;
 
-  instret = read_csr(minstret);
-  cycles = read_csr(mcycle);
-  time = read_csr(time);
+  instret = read_csr(instret);
+  cycles  = read_csr(cycle);
+  time    = read_csr(time);
 
   printf("instret:%ld\n", instret);
   printf("cycles:%ld\n",  cycles);
